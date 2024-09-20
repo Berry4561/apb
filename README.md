@@ -1,7 +1,7 @@
 # APB
 AMBA APB Design and Verfication
-AUTHORS- ADITYA KUMAR PRUSTY
-         SASANKA SEKHAR DASH
+AUTHORS- ADITYA KUMAR PRUSTY,
+         SASANKA SEKHAR DASH,
          SUBHA RANJAN SAHU
 
 In this Document you will get to learn AMBA-APB protocol, Testplanning, Coverage Planning, Test Bench Creation and Overall full scale verification of APB protocol.
