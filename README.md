@@ -1,4 +1,4 @@
-# apb
+# APB
 AMBA APB Design and Verfication
 AUTHORS- ADITYA KUMAR PRUSTY
          SASANKA SEKHAR DASH
