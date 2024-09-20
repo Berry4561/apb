@@ -1,0 +1,6 @@
+This a readme file for top level of Verif.
+
+Verif mainly consists of the following thing,
+  TOP module- The top module is where we instatiate the design and connect the testbench to the design via various interfaces to drive stimulus to design.
+  Test Bench- This is a abstraction world, where we code our testbench as per our requirement, we write stimulus for the desgin, we predict the expected behavior as per our input and comapare the behavior to the actual behavior of the DUT, we also write coverage for our stimulus.
+  
