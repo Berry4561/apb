@@ -6,7 +6,7 @@ AUTHORS- ADITYA KUMAR PRUSTY(DV),
          SUBHA RANJAN SAHU(Design)
 
 **#PRE-REQUISITE**
-The pre-requisite of this project is that you have already learned SV constructs, constrained randomization, and have some amount of knowledge to UVM-Library.
+The pre-requisite of this project is that you have already learned SV constructs, constrained randomization, and have some amount of basic knowledge to UVM-Library.
 
 **#YOU WILL LEARN**
 In this project you will learn how to setup your testbench ideally. How to use vcs and make use of uvm in vcs. Learn vcs commands, create filelist for including your source files, remove circular dependecy for compilation.
