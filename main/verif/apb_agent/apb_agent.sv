@@ -6,6 +6,7 @@
     apb_sequencer sqr;
     apb_driver drv;
     apb_monitor mon;
+    apb_reset_monitor reset_mon;
 
     `uvm_component_utils(apb_agent)
     
@@ -17,6 +18,7 @@
       sqr = apb_sequencer::type_id::create("sqr", this);
       drv = apb_driver::type_id::create("drv", this);
       mon = apb_monitor::type_id::create("mon", this);
+      reset_mon = apb_reset_monitor::type_id::create("reset_mon", this);
     endfunction
 
     function void connect_phase(uvm_phase phase);

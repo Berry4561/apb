@@ -13,4 +13,4 @@ build: $(FILE_LIST)
 
 # Clean target
 clean:
-	rm -rf $(SIMV) csrc* *.daidir *.vpd *.log
+	rm -rf $(SIMV) csrc* *.daidir *.vpd *.log vc_hdrs.h
