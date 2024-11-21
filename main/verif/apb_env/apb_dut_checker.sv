@@ -20,11 +20,23 @@ class apb_dut_checker extends uvm_component;
   bit [31:0] mem1[512:767];
   bit reset = 0;
 
+  //Coverage variables
+  bit [31:0] paddr;
+  bit        pwrite;
+  bit [31:0] pwdata;
+  bit [31:0] prdata;
+  bit        pslverr;
+
   apb_transaction txn;
   apb_transaction read_txn;
 
+  `include "apb_coverage.sv"
+
   function new(string name = "", uvm_component parent);
     super.new(name, parent);
+    valid_rw_txns_cg = new();
+    mem_integrity_txns_cg = new();
+    err_txns_cg = new();
   endfunction
 
   function void build_phase(uvm_phase phase);
@@ -32,6 +44,7 @@ class apb_dut_checker extends uvm_component;
     drv_export = new("drv_export", this);
     resp_export = new("resp_export", this);
     reset_export = new("reset_export", this);
+    
   endfunction
 
   function void connect_phase(uvm_phase phase);
@@ -60,9 +73,26 @@ class apb_dut_checker extends uvm_component;
   virtual function void write_drv(apb_transaction tr);
     `uvm_info("APB_DUT_CHECKER", $sformatf("Got Drv Transaction: %s",tr.sprint), UVM_LOW)
     txn = apb_transaction::type_id::create("txn", this);
+    //Initialize the coverage trans at start of a drive cycle {
+    paddr=0;
+    pwrite=0;
+    pwdata=0;
+    prdata=0;
+    pslverr=0;
+    //}
+
     txn.p_write = tr.p_write;
     txn.addr = tr.addr;
     txn.data = tr.data;
+
+    //Coverage assignments
+    pwrite = tr.p_write;
+    paddr = tr.addr;
+    pwdata = pwrite ? tr.data : 'd0;
+
+    valid_rw_txns_cg.sample();
+    mem_integrity_txns_cg.sample();
+    err_txns_cg.sample();
   endfunction
 
   virtual function void write_resp(apb_transaction tr);
@@ -97,6 +127,12 @@ class apb_dut_checker extends uvm_component;
         end //}
       end //}
     end //}
+    pslverr = tr.pslverr;
+    prdata = pwrite ? 'd0 : tr.data;
+
+    valid_rw_txns_cg.sample();
+    mem_integrity_txns_cg.sample();
+    err_txns_cg.sample();
   endfunction
 
   virtual function void write_reset(bit reset);
