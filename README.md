@@ -2,8 +2,7 @@
 AMBA APB Design and Verfication
 
 AUTHORS- ADITYA KUMAR PRUSTY(DV),
-         SASANKA SEKHAR DASH(DV),
-         SUBHA RANJAN SAHU(Design)
+        
 
 **#PRE-REQUISITE**
 The pre-requisite of this project is that you have already learned SV constructs, constrained randomization, and have some amount of basic knowledge to UVM-Library.
