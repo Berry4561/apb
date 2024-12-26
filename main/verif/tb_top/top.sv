@@ -48,6 +48,10 @@ module top;
     uvm_config_db#(virtual apb_interface)::set(null, "uvm_test_top", "vif", apb_if);
     run_test();
   end
+  initial begin
+  $fsdbDumpfile("debussy.fsdb");// REPlace these with fump.vcd anf dumpfile and dumpvars, if you fon'y hsbr verdi tool got verdi for fsdb
+  $fsdbDumpvars(0);
+  end
 
   
 endmodule

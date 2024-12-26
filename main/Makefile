@@ -14,3 +14,6 @@ build: $(FILE_LIST)
 # Clean target
 clean:
 	rm -rf $(SIMV) csrc* *.daidir *.vpd *.log vc_hdrs.h
+
+run_test:
+	./simv +UVM_TESTNAME=apb_rand_test
