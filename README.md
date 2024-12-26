@@ -17,3 +17,5 @@ APB protocol is a non-pipelined simple protocol, used to connect low bandwidth p
 In this project you will also learn how to setup a basic Tree for your project, Learn VCS for simulation.
 
 PLease go through apb_dut spec, apb_testplan in that order
+More on UVM vsn br gounf hrtr
+https://www.youtube.com/watch?v=EpSEwgymhzs&list=PLBIILfL2t1lnvzw7vF0arlvu36Wj4--D7&index=15
